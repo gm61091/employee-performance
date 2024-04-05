@@ -35,14 +35,14 @@ app.get(`/employees/sales`, async (req, res) => {
 // Show the highest performance_rating in the IT department.
 
 app.get(`/employees/highestInIt`, async (req, res) => {
-   const highestInIt = await db.one('SELECT MAX(performance_rating) FROM employees WHERE department = \'IT\'')
+   const highestInIt = await db.one(`SELECT MAX(performance_rating) FROM employees WHERE department = 'IT'`)
     res.send(`Highest performance rating in the IT department: ${highestInIt}`)
 });
 
 // Update the table so that all employees hired after 2015 have their performance_rating increased by 1.
 
 app.put(`/employees/updatePerformanceAfter2015`, async (req, res) => {
-    await db.none('UPDATE employees SET performance_rating = performance_rating + 1 WHERE hire_date > \'2015-01-01\'')
+    await db.none(`UPDATE employees SET performance_rating = performance_rating + 1 WHERE hire_date > '2015-01-01'`)
     res.send('Updated performance ratings after 2015')
 });
 
