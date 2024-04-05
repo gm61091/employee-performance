@@ -6,6 +6,12 @@ const PORT = 3000;
 const app = express();
 app.use(express.json());
 
+app.get(`/employees`, async (req, res) => {
+   const employeeList = await db.many('SELECT * FROM employees')
+   res.json(employeeList)
+
+});
+
 // Update the salary of all employees with a performance_rating of 5 by increasing it by 7%.
 
 app.put('/employees/updateSalary', async (req, res) => {
