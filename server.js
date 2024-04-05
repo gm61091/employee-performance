@@ -30,7 +30,7 @@ app.delete(`employees/deleteLowest`, async (req, res) => {
 
 app.get(`/employees/sales`, async (req, res) => {
    const salesEmployees = await db.many('SELECT * FROM employees WHERE department ="sales"')
-    res.send(salesEmployees)
+    res.json(salesEmployees)
 });
 
 //Show the highest performance_rating in the IT department.
