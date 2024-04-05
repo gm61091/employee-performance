@@ -47,3 +47,8 @@ app.get(`employees/highPerformers`, async (req, res) => {
    const highPerformers = await db.any('SELECT name, salary FROM employees WHERE performance_rating > 4')
    res.send(highPerformers)
 });
+
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}.`);
+     });
